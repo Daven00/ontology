@@ -1,0 +1,308 @@
+Prefix(:=<http://davidblade.altervista.org/2021/wot/hazard.owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(vann:=<http://purl.org/vocab/vann/>)
+Prefix(sifis:=<http://davidblade.altervista.org/2021/wot/hazard.owl#>)
+Prefix(dcterms:=<http://purl.org/dc/terms/>)
+
+
+Ontology(<http://davidblade.altervista.org/2021/wot/hazard.owl>
+Annotation(dcterms:creator <https://www.iit.cnr.it/marco.rasori/>)
+Annotation(dcterms:description "The hazard ontology has been created to extend the Thing Description (TD) of smart devices within Web of Things (WoT). The ontology defines various types of hazard as Individual which can be used to characterise Properties, Actions, and Events in a TD."@en)
+Annotation(dcterms:modified "2022-01-13"^^xsd:date)
+Annotation(dcterms:title "The SIFIS-Home ontology for hazards"@en)
+Annotation(vann:preferredNamespacePrefix "sifis")
+Annotation(owl:versionInfo "v1.0.0")
+
+Declaration(Class(sifis:Category))
+Declaration(Class(sifis:Hazard))
+Declaration(Class(<https://www.w3.org/2019/wot/td#InteractionAffordance>))
+Declaration(ObjectProperty(sifis:hasCategory))
+Declaration(ObjectProperty(sifis:hasHazard))
+Declaration(DataProperty(sifis:description))
+Declaration(DataProperty(sifis:name))
+Declaration(DataProperty(sifis:riskScore))
+Declaration(NamedIndividual(sifis:AirPoisoning))
+Declaration(NamedIndividual(sifis:Asphyxia))
+Declaration(NamedIndividual(sifis:AudioVideoRecordAndStore))
+Declaration(NamedIndividual(sifis:AudioVideoStream))
+Declaration(NamedIndividual(sifis:ElectricEnergyConsumption))
+Declaration(NamedIndividual(sifis:Explosion))
+Declaration(NamedIndividual(sifis:Financial))
+Declaration(NamedIndividual(sifis:FireHazard))
+Declaration(NamedIndividual(sifis:GasConsumption))
+Declaration(NamedIndividual(sifis:LogEnergyConsumption))
+Declaration(NamedIndividual(sifis:LogUsageTime))
+Declaration(NamedIndividual(sifis:PaySubscriptionFee))
+Declaration(NamedIndividual(sifis:PowerOutage))
+Declaration(NamedIndividual(sifis:PowerSurge))
+Declaration(NamedIndividual(sifis:Privacy))
+Declaration(NamedIndividual(sifis:RecordIssuedCommands))
+Declaration(NamedIndividual(sifis:RecordUserPreferences))
+Declaration(NamedIndividual(sifis:Safety))
+Declaration(NamedIndividual(sifis:SpendMoney))
+Declaration(NamedIndividual(sifis:SpoiledFood))
+Declaration(NamedIndividual(sifis:TakeDeviceScreenshots))
+Declaration(NamedIndividual(sifis:TakePictures))
+Declaration(NamedIndividual(sifis:UnauthorisedPhysicalAccess))
+Declaration(NamedIndividual(sifis:WaterConsumption))
+Declaration(NamedIndividual(sifis:WaterFlooding))
+Declaration(AnnotationProperty(dcterms:creator))
+Declaration(AnnotationProperty(dcterms:description))
+Declaration(AnnotationProperty(dcterms:license))
+Declaration(AnnotationProperty(dcterms:modified))
+Declaration(AnnotationProperty(dcterms:publisher))
+Declaration(AnnotationProperty(dcterms:source))
+Declaration(AnnotationProperty(dcterms:title))
+Declaration(AnnotationProperty(vann:preferredNamespacePrefix))
+Declaration(AnnotationProperty(vann:preferredNamespaceUri))
+Declaration(AnnotationProperty(<http://schema.org/description>))
+Declaration(AnnotationProperty(<http://schema.org/domainIncludes>))
+Declaration(AnnotationProperty(<http://schema.org/name>))
+Declaration(AnnotationProperty(<http://schema.org/rangeIncludes>))
+Declaration(Datatype(sifis:level))
+Declaration(Datatype(xsd:date))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: sifis:hasCategory (sifis:hasCategory)
+
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:hasCategory sifis:Hazard)
+AnnotationAssertion(<http://schema.org/rangeIncludes> sifis:hasCategory sifis:Category)
+ObjectPropertyDomain(sifis:hasCategory sifis:Hazard)
+ObjectPropertyRange(sifis:hasCategory sifis:Category)
+
+# Object Property: sifis:hasHazard (sifis:hasHazard)
+
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:hasHazard <https://www.w3.org/2019/wot/td#InteractionAffordance>)
+AnnotationAssertion(<http://schema.org/rangeIncludes> sifis:hasHazard sifis:Hazard)
+ObjectPropertyDomain(sifis:hasHazard <https://www.w3.org/2019/wot/td#InteractionAffordance>)
+ObjectPropertyRange(sifis:hasHazard sifis:Hazard)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: sifis:description (sifis:description)
+
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:description sifis:Category)
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:description sifis:Hazard)
+AnnotationAssertion(<http://schema.org/rangeIncludes> sifis:description xsd:string)
+DataPropertyDomain(sifis:description ObjectUnionOf(sifis:Category sifis:Hazard))
+DataPropertyRange(sifis:description xsd:string)
+
+# Data Property: sifis:name (sifis:name)
+
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:name sifis:Category)
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:name sifis:Hazard)
+AnnotationAssertion(<http://schema.org/rangeIncludes> sifis:name xsd:string)
+DataPropertyDomain(sifis:name ObjectUnionOf(sifis:Category sifis:Hazard))
+DataPropertyRange(sifis:name xsd:string)
+
+# Data Property: sifis:riskScore (sifis:riskScore)
+
+AnnotationAssertion(<http://schema.org/domainIncludes> sifis:riskScore sifis:Hazard)
+AnnotationAssertion(<http://schema.org/rangeIncludes> sifis:riskScore sifis:level)
+DataPropertyDomain(sifis:riskScore sifis:Hazard)
+DataPropertyRange(sifis:riskScore sifis:level)
+
+
+############################
+#   Datatypes
+############################
+
+# Datatype: sifis:level (sifis:level)
+
+DatatypeDefinition(sifis:level DatatypeRestriction(xsd:integer xsd:minInclusive "0"^^xsd:integer xsd:maxInclusive "10"^^xsd:integer))
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: sifis:AirPoisoning (sifis:AirPoisoning)
+
+ClassAssertion(sifis:Hazard sifis:AirPoisoning)
+ObjectPropertyAssertion(sifis:hasCategory sifis:AirPoisoning sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:AirPoisoning "The execution may release toxic gases"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:AirPoisoning "air poisoning"^^xsd:string)
+
+# Individual: sifis:Asphyxia (sifis:Asphyxia)
+
+ClassAssertion(sifis:Hazard sifis:Asphyxia)
+ObjectPropertyAssertion(sifis:hasCategory sifis:Asphyxia sifis:Safety)
+DataPropertyAssertion(sifis:name sifis:Asphyxia "The execution may cause oxygen deficiency by gaseous substances"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:Asphyxia "asphyxia"^^xsd:string)
+
+# Individual: sifis:AudioVideoRecordAndStore (sifis:AudioVideoRecordAndStore)
+
+ClassAssertion(sifis:Hazard sifis:AudioVideoRecordAndStore)
+ObjectPropertyAssertion(sifis:hasCategory sifis:AudioVideoRecordAndStore sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:AudioVideoRecordAndStore "The execution authorises the app to record and save a video with audio on persistent storage"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:AudioVideoRecordAndStore "audio video record and store"^^xsd:string)
+
+# Individual: sifis:AudioVideoStream (sifis:AudioVideoStream)
+
+ClassAssertion(sifis:Hazard sifis:AudioVideoStream)
+ObjectPropertyAssertion(sifis:hasCategory sifis:AudioVideoStream sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:AudioVideoStream "The execution authorises the app to obtain a video stream with audio"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:AudioVideoStream "audio video stream"^^xsd:string)
+
+# Individual: sifis:ElectricEnergyConsumption (sifis:ElectricEnergyConsumption)
+
+ClassAssertion(sifis:Hazard sifis:ElectricEnergyConsumption)
+ObjectPropertyAssertion(sifis:hasCategory sifis:ElectricEnergyConsumption sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:ElectricEnergyConsumption "The execution enables a device that consumes electricity"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:ElectricEnergyConsumption "electric energy consumption"^^xsd:string)
+DataPropertyAssertion(sifis:riskScore sifis:ElectricEnergyConsumption ""^^sifis:level)
+
+# Individual: sifis:Explosion (sifis:Explosion)
+
+ClassAssertion(sifis:Hazard sifis:Explosion)
+ObjectPropertyAssertion(sifis:hasCategory sifis:Explosion sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:Explosion "The execution may cause an explosion"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:Explosion "explosion"^^xsd:string)
+
+# Individual: sifis:Financial (sifis:Financial)
+
+ClassAssertion(sifis:Category sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:Financial "Category which includes all the financial-related hazards."^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:Financial "financial"^^xsd:string)
+
+# Individual: sifis:FireHazard (sifis:FireHazard)
+
+ClassAssertion(sifis:Hazard sifis:FireHazard)
+ObjectPropertyAssertion(sifis:hasCategory sifis:FireHazard sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:FireHazard "The execution may cause fire"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:FireHazard "fire hazard"^^xsd:string)
+DataPropertyAssertion(sifis:riskScore sifis:FireHazard ""^^sifis:level)
+
+# Individual: sifis:GasConsumption (sifis:GasConsumption)
+
+ClassAssertion(sifis:Hazard sifis:GasConsumption)
+ObjectPropertyAssertion(sifis:hasCategory sifis:GasConsumption sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:GasConsumption "The execution enables a device that consumes gas"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:GasConsumption "gas consumption"^^xsd:string)
+DataPropertyAssertion(sifis:riskScore sifis:GasConsumption ""^^sifis:level)
+
+# Individual: sifis:LogEnergyConsumption (sifis:LogEnergyConsumption)
+
+ClassAssertion(sifis:Hazard sifis:LogEnergyConsumption)
+ObjectPropertyAssertion(sifis:hasCategory sifis:LogEnergyConsumption sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:LogEnergyConsumption "The execution authorises the app to get and save information about the app's energy impact on the device the app runs on"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:LogEnergyConsumption "log energy consumption"^^xsd:string)
+
+# Individual: sifis:LogUsageTime (sifis:LogUsageTime)
+
+ClassAssertion(sifis:Hazard sifis:LogUsageTime)
+ObjectPropertyAssertion(sifis:hasCategory sifis:LogUsageTime sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:LogUsageTime "The execution authorises the app to get and save information about the app's duration of use"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:LogUsageTime "log usage time"^^xsd:string)
+
+# Individual: sifis:PaySubscriptionFee (sifis:PaySubscriptionFee)
+
+ClassAssertion(sifis:Hazard sifis:PaySubscriptionFee)
+ObjectPropertyAssertion(sifis:hasCategory sifis:PaySubscriptionFee sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:PaySubscriptionFee "The execution authorises the app to use payment information and make a periodic payment"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:PaySubscriptionFee "pay subscription fee"^^xsd:string)
+
+# Individual: sifis:PowerOutage (sifis:PowerOutage)
+
+ClassAssertion(sifis:Hazard sifis:PowerOutage)
+ObjectPropertyAssertion(sifis:hasCategory sifis:PowerOutage sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:PowerOutage "The execution may cause an interruption in the supply of electricity"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:PowerOutage "power outage"^^xsd:string)
+DataPropertyAssertion(sifis:riskScore sifis:PowerOutage ""^^sifis:level)
+
+# Individual: sifis:PowerSurge (sifis:PowerSurge)
+
+ClassAssertion(sifis:Hazard sifis:PowerSurge)
+ObjectPropertyAssertion(sifis:hasCategory sifis:PowerSurge sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:PowerSurge "The execution may lead to exposure to high voltages"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:PowerSurge "power surge"^^xsd:string)
+
+# Individual: sifis:Privacy (sifis:Privacy)
+
+ClassAssertion(sifis:Category sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:Privacy "Category which includes all the privacy-related hazards."^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:Privacy "privacy"^^xsd:string)
+
+# Individual: sifis:RecordIssuedCommands (sifis:RecordIssuedCommands)
+
+ClassAssertion(sifis:Hazard sifis:RecordIssuedCommands)
+ObjectPropertyAssertion(sifis:hasCategory sifis:RecordIssuedCommands sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:RecordIssuedCommands "The execution authorises the app to get and save user inputs"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:RecordIssuedCommands "record issued commands"^^xsd:string)
+
+# Individual: sifis:RecordUserPreferences (sifis:RecordUserPreferences)
+
+ClassAssertion(sifis:Hazard sifis:RecordUserPreferences)
+ObjectPropertyAssertion(sifis:hasCategory sifis:RecordUserPreferences sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:RecordUserPreferences "The execution authorises the app to get and save information about the user's preferences"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:RecordUserPreferences "record user preferences"^^xsd:string)
+
+# Individual: sifis:Safety (sifis:Safety)
+
+ClassAssertion(sifis:Category sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:Safety "Category which includes all the safety-related hazards."^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:Safety "safety"^^xsd:string)
+
+# Individual: sifis:SpendMoney (sifis:SpendMoney)
+
+ClassAssertion(sifis:Hazard sifis:SpendMoney)
+ObjectPropertyAssertion(sifis:hasCategory sifis:SpendMoney sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:SpendMoney "The execution authorises the app to use payment information and make a payment transaction"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:SpendMoney "spend money"^^xsd:string)
+
+# Individual: sifis:SpoiledFood (sifis:SpoiledFood)
+
+ClassAssertion(sifis:Hazard sifis:SpoiledFood)
+ObjectPropertyAssertion(sifis:hasCategory sifis:SpoiledFood sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:SpoiledFood "The execution may lead to rotten food"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:SpoiledFood "spoiled food"^^xsd:string)
+
+# Individual: sifis:TakeDeviceScreenshots (sifis:TakeDeviceScreenshots)
+
+ClassAssertion(sifis:Hazard sifis:TakeDeviceScreenshots)
+ObjectPropertyAssertion(sifis:hasCategory sifis:TakeDeviceScreenshots sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:TakeDeviceScreenshots "The execution authorises the app to read the display output and take screenshots of it"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:TakeDeviceScreenshots "take device screenshots"^^xsd:string)
+
+# Individual: sifis:TakePictures (sifis:TakePictures)
+
+ClassAssertion(sifis:Hazard sifis:TakePictures)
+ObjectPropertyAssertion(sifis:hasCategory sifis:TakePictures sifis:Privacy)
+DataPropertyAssertion(sifis:description sifis:TakePictures "The execution authorises the app to use a camera and take photos"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:TakePictures "take pictures"^^xsd:string)
+
+# Individual: sifis:UnauthorisedPhysicalAccess (sifis:UnauthorisedPhysicalAccess)
+
+ClassAssertion(sifis:Hazard sifis:UnauthorisedPhysicalAccess)
+ObjectPropertyAssertion(sifis:hasCategory sifis:UnauthorisedPhysicalAccess sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:UnauthorisedPhysicalAccess "The execution disables a protection mechanism and unauthorised individuals may physically enter home"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:UnauthorisedPhysicalAccess "unauthorised physical access"^^xsd:string)
+
+# Individual: sifis:WaterConsumption (sifis:WaterConsumption)
+
+ClassAssertion(sifis:Hazard sifis:WaterConsumption)
+ObjectPropertyAssertion(sifis:hasCategory sifis:WaterConsumption sifis:Financial)
+DataPropertyAssertion(sifis:description sifis:WaterConsumption "The execution enables a device that consumes water"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:WaterConsumption "water consumption"^^xsd:string)
+DataPropertyAssertion(sifis:riskScore sifis:WaterConsumption ""^^sifis:level)
+
+# Individual: sifis:WaterFlooding (sifis:WaterFlooding)
+
+ClassAssertion(sifis:Hazard sifis:WaterFlooding)
+ObjectPropertyAssertion(sifis:hasCategory sifis:WaterFlooding sifis:Safety)
+DataPropertyAssertion(sifis:description sifis:WaterFlooding "The execution allows water usage which may lead to flood"^^xsd:string)
+DataPropertyAssertion(sifis:name sifis:WaterFlooding "water flooding"^^xsd:string)
+
+
+)
